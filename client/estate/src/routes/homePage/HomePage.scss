@@ -1,0 +1,12 @@
+@import "../../mixins/comon.scss";
+
+.homePage {
+  @include flex;
+
+  .textContainer {
+    flex: 3;
+  }
+  .imgContainer {
+    flex: 2;
+  }
+}

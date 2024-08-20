@@ -1,0 +1,33 @@
+@import "../../mixins/comon.scss";
+nav {
+  height: 100px;
+  background-color: transparent;
+
+  @include flex;
+
+  .left {
+    @include flex($justify: flex-start, $gap: 50px);
+
+    flex: 3;
+    .logo {
+      @include flex($gap: 10px);
+      img {
+        width: 28px;
+      }
+      span {
+        font-size: 20px;
+      }
+    }
+  }
+
+  .right {
+    @include flex($justify: flex-end);
+    flex: 2;
+    a {
+      padding: 12px 24px;
+    }
+    .register {
+      background-color: #fece51;
+    }
+  }
+}
