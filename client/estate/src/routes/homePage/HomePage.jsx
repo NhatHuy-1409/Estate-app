@@ -1,12 +1,13 @@
 import React from "react"
 import SearchBar from "../../components/searchBar/SearchBar"
 import "./HomePage.scss"
+import LayoutWithBg from "../layoutWithBg/LayoutWithBg"
 
 function HomePage() {
   return (
-    <div className="homePage">
+    <LayoutWithBg>
       <div className="textContainer">
-        <h1>Find Real Estate & Get Your Dream Place</h1>
+        <h1 className="title">Find Real Estate & Get Your Dream Place</h1>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos explicabo
           suscipit cum eius, iure est nulla animi consequatur facilis id
@@ -29,10 +30,7 @@ function HomePage() {
           </div>
         </div>
       </div>
-      <div className="imgContainer">
-        <img src="./bg.png" alt="" />
-      </div>
-    </div>
+    </LayoutWithBg>
   )
 }
 

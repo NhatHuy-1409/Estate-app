@@ -1,0 +1,14 @@
+@import "../../mixins/comon.scss";
+
+.container {
+  @include flex($gap: 40px);
+  .content {
+    flex: 3;
+  }
+  .imgContainer {
+    flex: 2;
+    img {
+      width: 100%;
+    }
+  }
+}

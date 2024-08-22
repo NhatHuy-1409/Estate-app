@@ -1,4 +1,5 @@
 import React from "react"
+import "./SearchBar.scss"
 
 const types = ["buy", "rent"]
 
@@ -14,6 +15,11 @@ function SearchBar() {
         <input type="text" name="city" placeholder="City" />
         <input type="number" name="minPrice" placeholder="Min Price" />
         <input type="number" name="maxPrice" placeholder="Max Price" />
+        <a href="" className="searchBtn">
+          <button>
+            <img src="./search.png" alt="" />
+          </button>
+        </a>
       </form>
     </div>
   )

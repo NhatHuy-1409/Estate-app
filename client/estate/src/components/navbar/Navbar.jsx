@@ -1,23 +1,24 @@
 import React from "react"
 import "./Navbar.scss"
+import { Link } from "react-router-dom"
 function Navbar() {
   return (
     <nav>
       <div className="left">
-        <a href="/" className="logo">
+        <Link href="/" className="logo">
           <img src="./logo.png" alt="" />
           <span>Jack</span>
-        </a>
-        <a href="">Home</a>
-        <a href="/">About</a>
-        <a href="/">Contact</a>
-        <a href="/">Agent</a>
+        </Link>
+        <Link href="">Home</Link>
+        <Link href="/">About</Link>
+        <Link href="/">Contact</Link>
+        <Link href="/">Agent</Link>
       </div>
       <div className="right">
-        <a href="/login">Sign in</a>
-        <a href="/register" className="register">
+        <Link to="/login">Sign in</Link>
+        <Link to="/register" className="register">
           Sign up
-        </a>
+        </Link>
       </div>
     </nav>
   )

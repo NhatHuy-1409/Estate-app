@@ -1,0 +1,33 @@
+.searchBar {
+  .type {
+    button {
+      padding: 16px 36px;
+      border: 1px solid #999;
+      text-transform: capitalize;
+    }
+  }
+
+  form {
+    height: 64px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #999;
+    input {
+      width: 200px;
+      height: 100%;
+      padding: 10px;
+      border: none;
+    }
+    .searchBtn {
+      height: 100%;
+      display: inline-block;
+      button {
+        height: 100%;
+        padding: 0 14px;
+        cursor: pointer;
+        background-color: #fece51;
+        border: none;
+      }
+    }
+  }
+}
