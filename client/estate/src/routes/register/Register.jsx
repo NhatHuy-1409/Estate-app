@@ -4,10 +4,20 @@ import { Link } from "react-router-dom"
 
 import "./Login.scss"
 function Register() {
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const formData = new FormData(e.target)
+
+    const userName = formData.get("username")
+    const email = formData.get("email")
+    const password = formData.get("password")
+    console.log({ userName })
+  }
+
   return (
     <LayoutWithBg>
       <div className="login">
-        <form action="">
+        <form onSubmit={handleSubmit}>
           <h1>Welcome Back</h1>
           <input type="text" name="username" placeholder="Username" />
           <input type="text" name="email" placeholder="Email" />
