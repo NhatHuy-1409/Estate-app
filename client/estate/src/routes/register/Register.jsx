@@ -1,18 +1,30 @@
 import React from "react"
 import LayoutWithBg from "../layoutWithBg/LayoutWithBg"
 import { Link } from "react-router-dom"
+import axios from "axios";
 
 import "./Login.scss"
 function Register() {
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     const formData = new FormData(e.target)
 
-    const userName = formData.get("username")
+    const username = formData.get("username")
     const email = formData.get("email")
     const password = formData.get("password")
-    console.log({ userName })
+
+    try {
+      const res = await axios.post("http://localhost:8800/api/auth/register",{username,email,password})
+
+      console.log(res.data);
+      
+    } catch (error) {
+      console.log(error);
+      
+    }
+  
   }
+
 
   return (
     <LayoutWithBg>
@@ -22,7 +34,7 @@ function Register() {
           <input type="text" name="username" placeholder="Username" />
           <input type="text" name="email" placeholder="Email" />
           <input type="text" name="password" placeholder="Password" />
-          <button>Login</button>
+          <button>Register</button>
           <Link to="/register">{"Don't"} you have an account?</Link>
         </form>
       </div>
