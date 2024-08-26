@@ -1,0 +1,14 @@
+.listPage {
+  display: flex;
+  .content {
+    flex: 3;
+    .listCard {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+  .map {
+    flex: 2;
+  }
+}

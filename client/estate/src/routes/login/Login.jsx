@@ -1,17 +1,50 @@
-import React from "react"
+import React, { useState } from "react"
 import LayoutWithBg from "../layoutWithBg/LayoutWithBg"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 import "./Login.scss"
+import apiRequest from "../../lib/apiRequest"
 function Login() {
+  const [error, setError] = useState("")
+  const [isLoading, setIsLoading] = useState(false)
+
+  const navigate = useNavigate()
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setError("")
+    setIsLoading(true)
+
+    const formData = new FormData(e.target)
+
+    const username = formData.get("username")
+    const password = formData.get("password")
+
+    try {
+      const res = await apiRequest.post("/auth/login", {
+        username,
+        password,
+      })
+      localStorage.setItem("user", JSON.stringify(res.data))
+      navigate("/")
+      console.log(res.data)
+    } catch (error) {
+      console.log(error)
+      setError(error.response.data.message)
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
   return (
     <LayoutWithBg>
       <div className="login">
-        <form action="">
+        <form onSubmit={handleSubmit}>
           <h1>Welcome Back</h1>
           <input type="text" name="username" placeholder="Username" />
           <input type="text" name="password" placeholder="Password" />
-          <button>Login</button>
+          <button disabled={isLoading}>Login</button>
+          {error && <span>{error}</span>}
           <Link to="/register">{"Don't"} you have an account?</Link>
         </form>
       </div>

@@ -1,12 +1,18 @@
-import React from "react"
+import React, { useState } from "react"
 import LayoutWithBg from "../layoutWithBg/LayoutWithBg"
 import { Link } from "react-router-dom"
-import axios from "axios";
-
 import "./Login.scss"
+import apiRequest from "../../lib/apiRequest"
+
 function Register() {
+  const [error, setError] = useState("")
+  const [isLoading, setIsLoading] = useState(false)
+
   const handleSubmit = async (e) => {
     e.preventDefault()
+    setError("")
+    setIsLoading(true)
+
     const formData = new FormData(e.target)
 
     const username = formData.get("username")
@@ -14,17 +20,20 @@ function Register() {
     const password = formData.get("password")
 
     try {
-      const res = await axios.post("http://localhost:8800/api/auth/register",{username,email,password})
+      const res = await apiRequest.post("/auth/register", {
+        username,
+        email,
+        password,
+      })
 
-      console.log(res.data);
-      
+      console.log(res.data)
     } catch (error) {
-      console.log(error);
-      
+      console.log(error)
+      setError(error.response.data.message)
+    } finally {
+      setIsLoading(false)
     }
-  
   }
-
 
   return (
     <LayoutWithBg>
@@ -34,7 +43,8 @@ function Register() {
           <input type="text" name="username" placeholder="Username" />
           <input type="text" name="email" placeholder="Email" />
           <input type="text" name="password" placeholder="Password" />
-          <button>Register</button>
+          <button disabled={isLoading}>Register</button>
+          {error && <span>{error}</span>}
           <Link to="/register">{"Don't"} you have an account?</Link>
         </form>
       </div>
