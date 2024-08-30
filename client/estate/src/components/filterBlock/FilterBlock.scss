@@ -1,0 +1,46 @@
+.filterBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 16px;
+
+  margin-bottom: 24px;
+  input,
+  select {
+    padding: 8px;
+  }
+  .top {
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    gap: 8px;
+    #location {
+      width: 100%;
+    }
+  }
+  .bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+    .item {
+      display: flex;
+      flex-flow: column;
+      align-items: flex-start;
+      gap: 4px;
+      input,
+      select {
+        max-width: 100px;
+      }
+    }
+    button {
+      background-color: #56582f;
+      padding: 8px;
+      img {
+        width: 80%;
+      }
+    }
+  }
+}

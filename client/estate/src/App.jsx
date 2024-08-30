@@ -6,6 +6,7 @@ import HomePage from "./routes/homePage/HomePage"
 import Login from "./routes/login/Login"
 import Register from "./routes/register/Register"
 import ListPage from "./routes/listPage/ListPage"
+import SinglePage from "./routes/singlePage/SinglePage"
 
 function App() {
   const router = createBrowserRouter([
@@ -28,6 +29,10 @@ function App() {
         {
           path: "/list",
           element: <ListPage />,
+        },
+        {
+          path: "/singlepage",
+          element: <SinglePage />,
         },
       ],
     },

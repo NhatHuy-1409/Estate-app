@@ -1,5 +1,6 @@
 .listPage {
   display: flex;
+  gap: 24px;
   .content {
     flex: 3;
     .listCard {
@@ -8,7 +9,10 @@
       gap: 1rem;
     }
   }
-  .map {
+  .mapBlock {
     flex: 2;
+    height: 90vh;
+    position: sticky;
+    top: 40px;
   }
 }

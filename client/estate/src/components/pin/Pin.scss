@@ -1,0 +1,10 @@
+.popupContainer {
+  display: flex;
+  gap: 16px;
+  img {
+    width: 100px;
+  }
+  .textContainer {
+    gap: 8px;
+  }
+}
