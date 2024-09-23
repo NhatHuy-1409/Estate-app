@@ -1,4 +1,3 @@
-import { useState } from "react"
 import "./App.css"
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import Layout from "./routes/layout/Layout"
@@ -8,6 +7,7 @@ import Register from "./routes/register/Register"
 import ListPage from "./routes/listPage/ListPage"
 import SinglePage from "./routes/singlePage/SinglePage"
 import ProfilePage from "./routes/profilePage/profilePage"
+import ProfileUpdatePage from "./routes/profileUpdatePage/ProfileUpdatePage"
 
 function App() {
   const router = createBrowserRouter([
@@ -32,14 +32,17 @@ function App() {
           element: <ListPage />,
         },
         {
-          path: "/singlepage",
+          path: "/:id",
           element: <SinglePage />,
         },
         {
           path: "/profile",
           element: <ProfilePage />,
         },
-
+        {
+          path: "/profileUpdate",
+          element: <ProfileUpdatePage />,
+        },
       ],
     },
   ])
